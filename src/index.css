@@ -1,32 +1,29 @@
-body {
+* {
   padding: 0;
   margin: 0;
 }
 
-.relative {
+.container {
   position: relative;
-}
-
-.px-7 {
-  padding-left: 7rem;
-  padding-right: 7rem;
-}
-
-.pb-100 {
-  padding-bottom: 100px;
+  padding: 0 1rem 100px 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 10px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-bottom: 1px solid #c0c4cc;
 }
 
@@ -45,6 +42,8 @@ body {
   padding: 10px;
   padding-left: 40px;
   border: 1px solid #c0c4cc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .search--container .search--icon {
@@ -53,24 +52,23 @@ body {
 }
 
 .movies--label {
-  padding-top: 2.25rem;
-  padding-bottom: 1.5rem;
+  margin: 2.25rem 0rem 1.5rem;
 }
 
 .movies--grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(0, 1fr))[4];
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+  -ms-grid-columns: (minmax(0, 1fr))[1];
+      grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1.625rem;
 }
 
 .card {
+  cursor: pointer;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: white;
   position: relative;
-  border-radius: 15px;
+  border-radius: 8px;
   -webkit-box-shadow: 1px 2px 8px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 2px 8px 2px rgba(0, 0, 0, 0.1);
 }
@@ -80,6 +78,8 @@ body {
   top: 0.875rem;
   left: 0.875rem;
   border-radius: 50%;
+  width: 20px;
+  text-align: center;
   padding: 5px;
   border: 1px solid #000000;
   background-color: #ffffff;
@@ -87,54 +87,68 @@ body {
 
 .card .card--image {
   width: 100%;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.card .card--container {
-  padding: 10px 0px 15px;
+.card .card--footer {
+  padding: 0.625rem 1.625rem 1rem;
   font-size: 1rem;
   text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .modal {
   position: fixed;
-  overflow: hidden;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .modal .modal--body {
   position: fixed;
-  background: white;
-  width: 50%;
-  top: 50%;
+  background: #ffffff;
+  width: 80%;
+  top: 60%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   padding: 10px 20px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .modal .modal--body .modal--title {
   font-size: 1.125rem;
+  margin-bottom: 1rem;
+  margin-right: 1.2rem;
 }
 
 .modal .modal--body .modal--details {
   font-size: 0.875rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(0, 1fr))[2];
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  -ms-grid-columns: (minmax(0, 1fr))[1];
+      grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1.625rem;
+}
+
+.modal .modal--body .modal--details p {
+  margin-bottom: 1rem;
 }
 
 .modal .modal--body .modal--details .modal--image {
   width: 100%;
+  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -152,5 +166,51 @@ body {
 
 .display-none {
   display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .navbar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .movies--grid {
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .modal .modal--body {
+    top: 50%;
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .container {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+  .modal .modal--body {
+    width: 50%;
+  }
+  .modal .modal--body .modal--details {
+    font-size: 1rem;
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .movies--grid {
+    -ms-grid-columns: (minmax(0, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,26 +1,20 @@
-body {
+* {
   padding: 0;
   margin: 0;
 }
 
-.relative {
+.container {
   position: relative;
-}
-
-.px-7 {
-  padding-left: 7rem;
-  padding-right: 7rem;
-}
-
-.pb-100 {
-  padding-bottom: 100px;
+  padding: 0 1rem 100px 1rem;
+  box-sizing: border-box;
 }
 
 .navbar {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   padding: 10px 0;
+  box-sizing: border-box;
   border-bottom: 1px solid #c0c4cc;
 }
 
@@ -34,6 +28,7 @@ body {
     padding: 10px;
     padding-left: 40px;
     border: 1px solid #c0c4cc;
+    box-sizing: border-box;
   }
 
   .search--icon {
@@ -43,21 +38,20 @@ body {
 }
 
 .movies--label {
-  padding-top: 2.25rem;
-  padding-bottom: 1.5rem;
+  margin: 2.25rem 0rem 1.5rem;
 }
 
 .movies--grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1.625rem;
 }
 
 .card {
+  cursor: pointer;
   box-sizing: border-box;
-  background-color: white;
   position: relative;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: 1px 2px 8px 2px rgba(0, 0, 0, 0.1);
 
   .card--rating {
@@ -65,6 +59,8 @@ body {
     top: 0.875rem;
     left: 0.875rem;
     border-radius: 50%;
+    width: 20px;
+    text-align: center;
     padding: 5px;
     border: 1px solid #000000;
     background-color: #ffffff;
@@ -72,48 +68,58 @@ body {
 
   .card--image {
     width: 100%;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
     object-fit: contain;
+    box-sizing: border-box;
   }
 
-  .card--container {
-    padding: 10px 0px 15px;
+  .card--footer {
+    padding: 0.625rem 1.625rem 1rem;
     font-size: 1rem;
     text-align: center;
+    box-sizing: border-box;
   }
 }
 
 .modal {
   position: fixed;
-  overflow: hidden;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
 
   .modal--body {
     position: fixed;
-    background: white;
-    width: 50%;
-    top: 50%;
+    background: #ffffff;
+    width: 80%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px 20px 20px;
+    box-sizing: border-box;
 
     .modal--title {
       font-size: 1.125rem;
+      margin-bottom: 1rem;
+      margin-right: 1.2rem;
     }
 
     .modal--details {
       font-size: 0.875rem;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(1, minmax(0, 1fr));
       gap: 1.625rem;
+
+      & p{
+        margin-bottom: 1rem;
+      }
 
       .modal--image {
         width: 100%;
+        height: auto;
         object-fit: contain;
       }
     }
@@ -133,4 +139,48 @@ body {
 
 .display-none {
   display: none;
+}
+
+@media screen and (min-width: 480px){
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .movies--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .modal .modal--body {
+    top: 50%;
+    width: 70%;
+  }
+}
+
+@media screen and (min-width : 720px){
+  .container {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
+  .modal {
+    .modal--body {
+      width: 50%;
+
+      .modal--details {
+        font-size: 1rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+  
+  .movies--grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }

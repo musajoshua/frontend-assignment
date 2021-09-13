@@ -14,7 +14,7 @@ function Movie({ movie, openModal }) {
         alt={movie.title}
       />
       <span className="card--rating">{movie.vote_average}</span>
-      <div className="card--container">
+      <div className="card--footer">
         <p>{movie.title}</p>
       </div>
     </div>

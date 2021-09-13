@@ -1,0 +1,136 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.px-7 {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #c0c4cc;
+}
+
+.search--container {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .search--input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px;
+    border: 1px solid #c0c4cc;
+  }
+
+  .search--icon {
+    position: absolute;
+    left: 10px;
+  }
+}
+
+.movies--label {
+  padding-top: 2.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.movies--grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.625rem;
+}
+
+.card {
+  box-sizing: border-box;
+  background-color: white;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 1px 2px 8px 2px rgba(0, 0, 0, 0.1);
+
+  .card--rating {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.875rem;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+  }
+
+  .card--image {
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+    object-fit: contain;
+  }
+
+  .card--container {
+    padding: 10px 0px 15px;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+.modal {
+  position: fixed;
+  overflow: hidden;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  .modal--body {
+    position: fixed;
+    background: white;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px 20px;
+
+    .modal--title {
+      font-size: 1.125rem;
+    }
+
+    .modal--details {
+      font-size: 0.875rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.625rem;
+
+      .modal--image {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .modal--closeicon {
+      position: absolute;
+      top: 17px;
+      right: 17px;
+      cursor: pointer;
+    }
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

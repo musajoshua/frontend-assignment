@@ -15,7 +15,7 @@ const App = () => {
   const fetchMovies = async () => {
     setLoading(true);
     const { data } = await http.get(
-      `/movie/top_rated?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&page=1`
+      `/movie/popular?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&page=1`
     );
     setMovies(data.results);
     setLoading(false);
@@ -39,7 +39,10 @@ const App = () => {
     const value = e.target.value;
     setInput(value);
 
-    if (value.length < 1) return;
+    if (value.length < 1){
+      fetchMovies();
+      return;
+    }
     const { data } = await http.get(
       `/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&query=${value}&page=1&include_adult=false`
     );
@@ -47,7 +50,7 @@ const App = () => {
   };
 
   return (
-    <div className="px-7 pb-100 relative">
+    <div className="container">
       <Modal visible={visible} movie={movie} closeModal={closeModal} />
       <Navbar value={input} onChange={onChange} />
       {loading ? (
